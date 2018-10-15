@@ -1,11 +1,11 @@
-# python Naoqi Installation GUIDE for macOS (with conda)
+# python Naoqi Installation Guide for macOS (with conda)
 
 ## tested on this macOS
 - *Notebook:* MacBook Pro (15-inch, 2016)
 - *OS:* macOS High Sierra 10.13
 - *LoginUser:* userxy
 
-function wroblab:
+### function wroblab:
 ```shell
 function wroblab {
   if [ -d /Users/userxy/Documents/Studium.Local/ROBLAB/source ]; then
@@ -22,15 +22,15 @@ function wroblab {
 - pynaoqi-sdk: pynaoqi-python2.7-2.5.5.5-mac64.tar.gz (date: 2. Oct 2018)
 - python: Python 2.7 from Python.org (it must be the version from Python.org - any other python version, as example from conda or native macOS-python, will NOT work)
 
-## installation guide
+## Installation guide
 1. Install Python 2.7 from Python.org
 2. Check if `/usr/local/bin/python` is correct installed (do not use `/usr/bin/python`)
 3. Download and extract the latest python-sdk for naoqi
-  - (optional) create a new conda env
-  - (optional) move to the `python` link to `/usr/local/bin/python` (example: `ln -s /usr/local/bin/python python2.7`)
-4. Check if PYTHONPATH, DYLD_LIBRARY_PATH and DYLD_FRAMEWORK_PATH are set correct
-  * (optional) When you use conde, you can set the conda environment variables direct in conda
-  * (optional) more infos below.
+   * (optional) create a new conda env
+   * (optional) move to the `python` link to `/usr/local/bin/python` (example: `ln -s /usr/local/bin/python python2.7`)
+4. Check if `PYTHONPATH`, `DYLD_LIBRARY_PATH` and `DYLD_FRAMEWORK_PATH` are set correct
+   * (optional) When you use conde, you can set the conda environment variables direct in conda
+   * (optional) more infos below.
 5. Test it `python -c 'import naoqi'`
 
 
@@ -38,7 +38,7 @@ function wroblab {
 1. Activate your conda environment `source activate pepper-env`
 2. Check if the `$CONDA_PREFIX` is set correctly: `echo $CONDA_PREFIX`
 3. Enter that directory and create these subdirectories and files:
-```
+```shell
 cd $CONDA_PREFIX
 mkdir -p ./etc/conda/activate.d
 mkdir -p ./etc/conda/deactivate.d
@@ -47,7 +47,7 @@ touch ./etc/conda/deactivate.d/env_vars.sh
 ```
 
 4. Edit ./etc/conda/activate.d/env_vars.sh
-```
+```shell
 #!/bin/sh
 
 export PYTHONPATH=/Users/userxy/Documents/Studium.Local/ROBLAB/pynaoqi-sdk/lib/python2.7/site-packages
@@ -56,7 +56,7 @@ export DYLD_FRAMEWORK_PATH=/Users/userxy/Documents/Studium.Local/ROBLAB/pynaoqi-
 ```
 
 5. Edit ./etc/conda/deactivate.d/env_vars.sh
-```
+```shell
 #!/bin/sh
 
 unset PYTHONPATH
@@ -65,7 +65,7 @@ unset DYLD_FRAMEWORK_PATH
 ```
 
 6. Test our conda 
-```
+```shell
 source activate pepper-env
 echo $PYTHONPATH
 echo $DYLD_LIBRARY_PATH
