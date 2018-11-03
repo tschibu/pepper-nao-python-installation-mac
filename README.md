@@ -111,4 +111,16 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 
 # python Naoqi with PyCharm (macOS)
-tbd
+
+## Configuration PyCharm
+
+### Project Interpreter
+change the project interpreter to conda-env
+
+![project interpreter](img/config_pycharm_01.png)
+
+### Run / Configuration
+![project interpreter](img/config_pycharm_02.png)
+
+### Add Naoqi Variables to the default project Configuration
+![project interpreter](img/config_pycharm_03.png)
